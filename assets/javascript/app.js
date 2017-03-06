@@ -18,6 +18,8 @@ var audioElementPetty = document.createElement("audioPetty");
 //First Questions music buttons
     var journeyAudio = document.createElement("audio");
     audioElement.setAttribute("src", "Assets/audio/02 Don't Stop Believin'.m4a");
+    
+
     $(".journeyPlayButton").on("click", function() {
         audioElement.play();
     });
@@ -27,14 +29,28 @@ var audioElementPetty = document.createElement("audioPetty");
     });
 
 //Second Question music buttons
-    var pettyAudio = document.createElement("audioPetty");
-    audioElementPetty.setAttribute("src", "Assets/audio/01 American Girl.m4a");
-    $("pettyPlayButton").on("click", function() {
-        pettyAudio.play();
+
+    var song = document.createElement("audio");
+    song.setAttribute("src", "Assets/audio/01 American Girl.m4a");
+
+$(".pettyPlayButton").on("click", function() {
+        song.play();
+        console.log("play", song);
     });
-    $(".pettyPlayButton").on("click", function(){
-        pettyAudio.pause();
+
+    $(".pettyPauseButton").on("click", function() {
+        song.pause();
     });
+    // var pettyAudio = document.createElement("audio");
+    // audioElement.setAttribute("src", "Assets/audio/01 American Girl.m4a");
+    
+
+    // $(".pettyPlayButton").on("click", function() {
+    //     pettyAudio.play();
+    // });
+    // $(".pettyPlayButton").on("click", function(){
+    //     pettyAudio.pause();
+    // });
 
     // //will hold the correct answer for each question
     // var rightAnswers = ["Journey", "Tom Petty"];
@@ -329,7 +345,7 @@ function timeConverter(t) {
         values.push($(this).val()); //add value to array
         //var b = $(this).attr("value");
         //alert(b);
-        checkChoice();
+        checkWrong();
         // skm_LockScreen(); //locks screen after clicked
         console.log("our value array", values);
 
@@ -365,7 +381,7 @@ function timeConverter(t) {
         $("#win-counter").html("Wins: " + winCounter);
         nextQuestion();
         console.log("second display", displayQuestionTwo);
-
+displayQuestionTwo();
 };
 
     function checkWrong() {
@@ -407,7 +423,7 @@ displayQuestionTwo();
     function displayQuestionTwo () {
         $(".second-question").show();
     $(".second-question").appendTo("body");
-    $("#category2, .band-image").hide();
+    $("#category2, .band-image, .journeyPlayButton, .journeyPlayButton").hide();
     };
 
 //convert values into strings to process in check answer function
