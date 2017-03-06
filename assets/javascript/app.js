@@ -41,16 +41,17 @@ $(".pettyPlayButton").on("click", function() {
     $(".pettyPauseButton").on("click", function() {
         song.pause();
     });
-    // var pettyAudio = document.createElement("audio");
-    // audioElement.setAttribute("src", "Assets/audio/01 American Girl.m4a");
-    
+   
+//Third Question music buttons
+    var freddie = document.createElement("audio");
+    freddie.setAttribute("src", "Assets/audio/07 Bicycle Race.m4a");
 
-    // $(".pettyPlayButton").on("click", function() {
-    //     pettyAudio.play();
-    // });
-    // $(".pettyPlayButton").on("click", function(){
-    //     pettyAudio.pause();
-    // });
+    $(".queenPlayButton").on("click", function(){
+        freddie.play();
+    });
+    $(".queenPauseButton").on("click", function(){
+        freddie.pause();
+    });
 
     // //will hold the correct answer for each question
     // var rightAnswers = ["Journey", "Tom Petty"];
@@ -256,6 +257,7 @@ function timeConverter(t) {
             $(".container").show();
             $("#category1").hide(); 
             $("#correctAnswer").hide();
+            $(".third-question").hide();
 // window.onload = function() {
 //     $(".start-button").on("click", reset);
 
@@ -293,6 +295,7 @@ function timeConverter(t) {
         //var a = $(this).attr("value");
         //alert(a);
         checkWrong();
+        firstSequence();
         // skm_LockScreen(); //locks screen after clicked
         console.log("our value array", values);
     });
@@ -303,6 +306,7 @@ function timeConverter(t) {
         //var b = $(this).attr("value");
         //alert(b);
         checkChoice();
+        firstSequence();
         // skm_LockScreen(); //locks screen after clicked
         console.log("our value array", values);
 
@@ -313,6 +317,7 @@ function timeConverter(t) {
         //var c = $(this).attr("value");
         //alert(c);
         checkWrong();
+        firstSequence();
         // skm_LockScreen(); //locks screen after clicked
         console.log("our value array", values);
     });
@@ -323,6 +328,7 @@ function timeConverter(t) {
         //var d = $(this).attr("value");
         //alert(d);
         checkWrong();
+        firstSequence();
         // skm_LockScreen(); //locks screen after clicked
         console.log("our value array", values);
 
@@ -338,6 +344,7 @@ function timeConverter(t) {
         checkWrong();
         // skm_LockScreen(); //locks screen after clicked
         console.log("our value array", values);
+        displayQuestionThree();
     });
 
 
@@ -348,6 +355,7 @@ function timeConverter(t) {
         checkWrong();
         // skm_LockScreen(); //locks screen after clicked
         console.log("our value array", values);
+        displayQuestionThree();
 
     });
 
@@ -358,6 +366,7 @@ function timeConverter(t) {
         checkWrong();
         // skm_LockScreen(); //locks screen after clicked
         console.log("our value array", values);
+        displayQuestionThree();
     });
 
 
@@ -368,39 +377,87 @@ function timeConverter(t) {
         checkChoice();
         // skm_LockScreen(); //locks screen after clicked
         console.log("our value array", values);
+        displayQuestionThree();
+
+    });
+
+    //Storing values for choices in an array
+    $("#q3a").click(function(i) {
+        values.push($(this).val()); //add value to array
+        //var a = $(this).attr("value");
+        //alert(a);
+        checkWrong();
+        endGame();
+        // skm_LockScreen(); //locks screen after clicked
+        console.log("our value array", values);
+    });
+
+
+    $("#q3b").click(function(i) {
+        values.push($(this).val()); //add value to array
+        //var b = $(this).attr("value");
+        //alert(b);
+        checkWrong();
+        endGame();
+        // skm_LockScreen(); //locks screen after clicked
+        console.log("our value array", values);
+
+    });
+
+    $("#q3c").click(function(i) {
+        values.push($(this).val()); //add value to array
+        //var c = $(this).attr("value");
+        //alert(c);
+        checkChoice();
+        endGame();
+        // skm_LockScreen(); //locks screen after clicked
+        console.log("our value array", values);
+    });
+
+
+    $("#q3d").click(function(i) {
+        values.push($(this).val()); //add value to array
+        //var d = $(this).attr("value");
+        //alert(d);
+        checkWrong();
+        endGame();
+        // skm_LockScreen(); //locks screen after clicked
+        console.log("our value array", values);
 
     });
 
     function checkChoice() {
 
-        document.getElementById("q1b", "q1d").checked = true;
+        document.getElementById("q1b", "q2d", "q3c").checked = true;
         alert("correct!!!!");
         winCounter++;
         $("#win-counter").html(winCounter);
         console.log("our check choice funciton", checkChoice);
         $("#win-counter").html("Wins: " + winCounter);
-        nextQuestion();
+        
         console.log("second display", displayQuestionTwo);
-displayQuestionTwo();
+
 };
 
     function checkWrong() {
-        document.getElementById("q1a", "q1c", "q1d", "q2a", "q2b", "q2c");
+        document.getElementById("q1a", "q1c", "q1d", "q2a", "q2b", "q2c", "q3a", "q3b", "q3d");
          alert("sorry, wrong answer");
          loseCounter++;
          console.log("our lose counter", loseCounter);
         $("#lose-counter").html("Losses: " + loseCounter);
-
+};
 
 // $("#explanation1")
 // .append(quiz.Question1.explanation);
 // .css("color", white);
 
-console.log("the explanation" + quiz.Question1.explanation);
+//console.log("the explanation" + quiz.Question1.explanation);
 
+function firstSequence() {
 nextQuestion();
 console.log("second display", displayQuestionTwo);
 displayQuestionTwo();
+
 };
   
         
@@ -424,7 +481,27 @@ displayQuestionTwo();
         $(".second-question").show();
     $(".second-question").appendTo("body");
     $("#category2, .band-image, .journeyPlayButton, .journeyPlayButton").hide();
+    
+
     };
+
+    function displayQuestionThree() {
+        $(".second-question").hide();
+        $("#time-left, .scoreboard, #lose-counter, #win-counter").appendTo("body");
+            $("#category3").hide(); 
+            
+        $(".third-question").show();
+        $(".third-question").appendTo("body");
+        $(".band-image-3, .queenPlayButton, .queenPauseButton").show();
+   
+    };
+
+    function endGame() {
+        $(".container, .second-question, .third-question").hide();
+        $("#category1, #category2, #category3, #lose-counter, #win-counter").show();
+        alert("That's all folks! Thanks for playing");
+    };
+
 
 //convert values into strings to process in check answer function
     // var chosenAnswer = values.split("");

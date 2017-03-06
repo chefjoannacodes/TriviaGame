@@ -63,7 +63,9 @@ margin-right: 75px;
 .journeyPlayButton,
 .journeyPauseButton,
 .pettyPlayButton,
-.pettyPauseButton
+.pettyPauseButton, 
+.queenPlayButton,
+.queenPauseButton
  {
 	background-color: blue;
 	width:100px;
@@ -81,6 +83,11 @@ margin-right: 75px;
 	width: 500px;
 	height: 200px;
 	background-image:url(../images/Tom-Petty-Playing-Guitar-008.jpg);
+}
+.band-image-3 {
+	width: 500px;
+	height: 200px;
+	background-image:url(../images/freddie.jpg);
 }
 form {
 	color: white;
@@ -108,7 +115,8 @@ input[type="radio"]{
 	margin-right: 10px;
 }
 .main-section, 
-.second-question {
+.second-question, 
+.third-question {
 	opacity: 0.8;
 	background-color: black;
 	width: 600px;
