@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     //First Questions music buttons
     var journeyAudio = document.createElement("audio");
-    audioElement.setAttribute("src", "Assets/audio/02 Don't Stop Believin'.m4a", "02 Don't Stop Believin'.ogg");
+    audioElement.setAttribute("src", "Assets/audio/02 Don't Stop Believin'.m4a", "Assets/audio/02 Don't Stop Believin'.ogg");
 
 
     $(".journeyPlayButton").on("click", function() {
